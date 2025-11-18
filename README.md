@@ -1,2 +1,2 @@
 # AMARCHs3
-We decided to re impliment Archs4 in python.
+We decided to re implement Archs4 in python.
