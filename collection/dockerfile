@@ -1,0 +1,4 @@
+FROM hadrieng/salmon
+WORKDIR /app
+COPY . /app
+RUN uv pip install --no-cache-dir -r requirements.txt
