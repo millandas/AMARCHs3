@@ -1,0 +1,115 @@
+[2025-11-22 12:48:23.664] [puff::index::jointLog] [info] Running fixFasta
+[2025-11-22 12:48:23.711] [puff::index::jointLog] [warning] Entry with header [ENST00000415118.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.712] [puff::index::jointLog] [warning] Entry with header [ENST00000448914.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.712] [puff::index::jointLog] [warning] Entry with header [ENST00000434970.2], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.712] [puff::index::jointLog] [warning] Entry with header [ENST00000632684.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.712] [puff::index::jointLog] [warning] Entry with header [ENST00000631435.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.712] [puff::index::jointLog] [warning] Entry with header [ENST00000710614.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.714] [puff::index::jointLog] [warning] Entry with header [ENST00000632524.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.714] [puff::index::jointLog] [warning] Entry with header [ENST00000633009.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.714] [puff::index::jointLog] [warning] Entry with header [ENST00000634070.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.715] [puff::index::jointLog] [warning] Entry with header [ENST00000632963.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.715] [puff::index::jointLog] [warning] Entry with header [ENST00000633030.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.715] [puff::index::jointLog] [warning] Entry with header [ENST00000633765.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.715] [puff::index::jointLog] [warning] Entry with header [ENST00000632619.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.715] [puff::index::jointLog] [warning] Entry with header [ENST00000632968.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.715] [puff::index::jointLog] [warning] Entry with header [ENST00000633159.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.715] [puff::index::jointLog] [warning] Entry with header [ENST00000631871.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.715] [puff::index::jointLog] [warning] Entry with header [ENST00000633010.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.715] [puff::index::jointLog] [warning] Entry with header [ENST00000632473.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.715] [puff::index::jointLog] [warning] Entry with header [ENST00000631884.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.715] [puff::index::jointLog] [warning] Entry with header [ENST00000632859.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.716] [puff::index::jointLog] [warning] Entry with header [ENST00000631895.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.716] [puff::index::jointLog] [warning] Entry with header [ENST00000634154.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.716] [puff::index::jointLog] [warning] Entry with header [ENST00000632609.2], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.716] [puff::index::jointLog] [warning] Entry with header [ENST00000632911.2], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.716] [puff::index::jointLog] [warning] Entry with header [ENST00000633504.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.716] [puff::index::jointLog] [warning] Entry with header [ENST00000632304.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.716] [puff::index::jointLog] [warning] Entry with header [ENST00000632542.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.716] [puff::index::jointLog] [warning] Entry with header [ENST00000633968.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.717] [puff::index::jointLog] [warning] Entry with header [ENST00000634085.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.717] [puff::index::jointLog] [warning] Entry with header [ENST00000633353.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.717] [puff::index::jointLog] [warning] Entry with header [ENST00000631803.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.717] [puff::index::jointLog] [warning] Entry with header [ENST00000633210.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.717] [puff::index::jointLog] [warning] Entry with header [ENST00000439842.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.717] [puff::index::jointLog] [warning] Entry with header [ENST00000390567.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.717] [puff::index::jointLog] [warning] Entry with header [ENST00000452198.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.717] [puff::index::jointLog] [warning] Entry with header [ENST00000390569.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.717] [puff::index::jointLog] [warning] Entry with header [ENST00000437320.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.717] [puff::index::jointLog] [warning] Entry with header [ENST00000390571.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.717] [puff::index::jointLog] [warning] Entry with header [ENST00000390572.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.718] [puff::index::jointLog] [warning] Entry with header [ENST00000450276.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.718] [puff::index::jointLog] [warning] Entry with header [ENST00000390574.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.718] [puff::index::jointLog] [warning] Entry with header [ENST00000390575.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.718] [puff::index::jointLog] [warning] Entry with header [ENST00000431870.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.718] [puff::index::jointLog] [warning] Entry with header [ENST00000390578.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.718] [puff::index::jointLog] [warning] Entry with header [ENST00000451044.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.718] [puff::index::jointLog] [warning] Entry with header [ENST00000390580.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.718] [puff::index::jointLog] [warning] Entry with header [ENST00000390581.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.719] [puff::index::jointLog] [warning] Entry with header [ENST00000431440.2], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.719] [puff::index::jointLog] [warning] Entry with header [ENST00000390585.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.719] [puff::index::jointLog] [warning] Entry with header [ENST00000430425.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.719] [puff::index::jointLog] [warning] Entry with header [ENST00000454691.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.719] [puff::index::jointLog] [warning] Entry with header [ENST00000390588.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.719] [puff::index::jointLog] [warning] Entry with header [ENST00000414852.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.719] [puff::index::jointLog] [warning] Entry with header [ENST00000390590.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.719] [puff::index::jointLog] [warning] Entry with header [ENST00000390591.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.719] [puff::index::jointLog] [warning] Entry with header [ENST00000454908.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.720] [puff::index::jointLog] [warning] Entry with header [ENST00000390583.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.720] [puff::index::jointLog] [warning] Entry with header [ENST00000390584.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.720] [puff::index::jointLog] [warning] Entry with header [ENST00000604642.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.720] [puff::index::jointLog] [warning] Entry with header [ENST00000603326.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.720] [puff::index::jointLog] [warning] Entry with header [ENST00000604950.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.721] [puff::index::jointLog] [warning] Entry with header [ENST00000603077.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.721] [puff::index::jointLog] [warning] Entry with header [ENST00000605284.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.721] [puff::index::jointLog] [warning] Entry with header [ENST00000604446.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.721] [puff::index::jointLog] [warning] Entry with header [ENST00000603693.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.721] [puff::index::jointLog] [warning] Entry with header [ENST00000603935.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.721] [puff::index::jointLog] [warning] Entry with header [ENST00000604102.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:23.721] [puff::index::jointLog] [warning] Entry with header [ENST00000604838.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:24.910] [puff::index::jointLog] [warning] Entry with header [ENST00000626807.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:25.113] [puff::index::jointLog] [warning] Entry with header [ENST00000629250.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:25.136] [puff::index::jointLog] [warning] Entry with header [ENST00000632054.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:29.563] [puff::index::jointLog] [warning] Entry with header [ENST00000437226.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:30.271] [puff::index::jointLog] [warning] Entry with header [ENST00000417283.5], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:30.271] [puff::index::jointLog] [warning] Entry with header [ENST00000465958.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:31.137] [puff::index::jointLog] [warning] Entry with header [ENST00000692460.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:35.255] [puff::index::jointLog] [warning] Entry with header [ENST00000682202.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:38.111] [puff::index::jointLog] [warning] Entry with header [ENST00000473810.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:38.118] [puff::index::jointLog] [warning] Entry with header [ENST00000543745.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:38.147] [puff::index::jointLog] [warning] Entry with header [ENST00000603775.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:38.160] [puff::index::jointLog] [warning] Entry with header [ENST00000579054.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:38.286] [puff::index::jointLog] [warning] Entry with header [ENST00000634174.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:38.294] [puff::index::jointLog] [warning] Entry with header [ENST00000573437.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:38.346] [puff::index::jointLog] [warning] Entry with header [ENST00000518246.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:38.347] [puff::index::jointLog] [warning] Entry with header [ENST00000632342.1], had length less than equal to the k-mer length of 31 (perhaps after poly-A clipping)
+[2025-11-22 12:48:38.386] [puff::index::jointLog] [warning] Removed 12966 transcripts that were sequence duplicates of indexed transcripts.
+[2025-11-22 12:48:38.386] [puff::index::jointLog] [warning] If you wish to retain duplicate transcripts, please use the `--keepDuplicates` flag
+[2025-11-22 12:48:38.424] [puff::index::jointLog] [info] Replaced 100005 non-ATCG nucleotides
+[2025-11-22 12:48:38.424] [puff::index::jointLog] [info] Clipped poly-A tails from 1517 transcripts
+[2025-11-22 12:49:14.721] [puff::index::jointLog] [info] Filter size not provided; estimating from number of distinct k-mers
+[2025-11-22 12:49:42.253] [puff::index::jointLog] [info] ntHll estimated 115908649 distinct k-mers, setting filter size to 2^31
+[2025-11-22 13:00:50.566] [puff::index::jointLog] [info] Starting the Pufferfish indexing by reading the GFA binary file.
+[2025-11-22 13:00:50.566] [puff::index::jointLog] [info] Setting the index/BinaryGfa directory /data/ref/salmon_index
+[2025-11-22 13:00:51.593] [puff::index::jointLog] [info] Done wrapping the rank vector with a rank9sel structure.
+[2025-11-22 13:00:51.602] [puff::index::jointLog] [info] contig count for validation: 1195649
+[2025-11-22 13:00:57.035] [puff::index::jointLog] [info] Total # of Contigs : 1195649
+[2025-11-22 13:00:57.035] [puff::index::jointLog] [info] Total # of numerical Contigs : 1195649
+[2025-11-22 13:00:57.142] [puff::index::jointLog] [info] Total # of contig vec entries: 8296889
+[2025-11-22 13:00:57.144] [puff::index::jointLog] [info] bits per offset entry 23
+[2025-11-22 13:00:57.632] [puff::index::jointLog] [info] Done constructing the contig vector. 1195650
+[2025-11-22 13:01:02.603] [puff::index::jointLog] [info] # segments = 1195649
+[2025-11-22 13:01:02.604] [puff::index::jointLog] [info] total length = 152578102
+[2025-11-22 13:01:02.733] [puff::index::jointLog] [info] Reading the reference files ...
+[2025-11-22 13:01:15.610] [puff::index::jointLog] [info] positional integer width = 28
+[2025-11-22 13:01:15.610] [puff::index::jointLog] [info] seqSize = 152578102
+[2025-11-22 13:01:15.610] [puff::index::jointLog] [info] rankSize = 152578102
+[2025-11-22 13:01:15.610] [puff::index::jointLog] [info] edgeVecSize = 0
+[2025-11-22 13:01:15.610] [puff::index::jointLog] [info] num keys = 116708632
+[2025-11-22 13:01:47.487] [puff::index::jointLog] [info] mphf size = 72.899 MB
+[2025-11-22 13:01:47.786] [puff::index::jointLog] [info] chunk size = 76289051
+[2025-11-22 13:01:47.790] [puff::index::jointLog] [info] chunk 0 = [0, 76289051)
+[2025-11-22 13:01:47.790] [puff::index::jointLog] [info] chunk 1 = [76289051, 152578072)
+[2025-11-22 13:02:11.747] [puff::index::jointLog] [info] finished populating pos vector
+[2025-11-22 13:02:11.747] [puff::index::jointLog] [info] writing index components
+[2025-11-22 13:02:18.879] [puff::index::jointLog] [info] finished writing dense pufferfish index
