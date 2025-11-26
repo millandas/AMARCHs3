@@ -3,14 +3,28 @@ import boto3
 import pandas as pd
 import yaml
 import io
+import os
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 class GeneExpressionDataLoader:
     def __init__(self, config_path='config/datasets.yaml'):
         with open(config_path) as f:
             self.config = yaml.safe_load(f)
-        self.s3_client = boto3.client('s3')
-        self.bucket = self.config['s3_bucket']
+        
+        # Initialize S3 client using environment variables
+
+        self.s3_client = boto3.client(
+            's3',
+            aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
+            aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
+            region_name=os.getenv('AWS_REGION_NAME', self.config.get('s3_region', 'eu-north-1'))
+        )
+        # Allow bucket override via environment variable, otherwise use config
+        self.bucket = os.getenv('AWS_S3_BUCKET') or self.config['s3_bucket']
         print(f"Connected to S3 bucket: {self.bucket}")
     
     def process_file(self, filepath):
@@ -41,7 +55,7 @@ class GeneExpressionDataLoader:
     def build_dataset(self, geo_id, max_workers=10):
         """Build complete dataset by processing all files in parallel"""
         files = self.list_sample_files(geo_id)
-        
+
         if not files:
             raise ValueError(f"No files found for {geo_id}")
         
@@ -109,14 +123,14 @@ class GeneExpressionDataLoader:
 # Usage example
 if __name__ == "__main__":
     loader = GeneExpressionDataLoader()
+
+    datasets = [ 'GSE58137'] # 'GSE63063',
     
-    # Build dataset
-    df = loader.build_dataset('GSE58137', max_workers=10)
-    df.to_csv('scripts/merged.csv')
-    # Inspect
-    print("\nDataset preview:")
-    print(df.head())
-    #print(f"\nMetadata columns: {[col for col in df.columns if col not in df.select_dtypes(include='number').columns]}")
-    
-    # Save
-    #loader.save_dataset(df, 'GSE58137', output_format='csv')
+    for dataset in datasets:
+        # Build dataset
+        df = loader.build_dataset(dataset, max_workers=10)
+        # Inspect
+        print("\nDataset preview:")
+        print(df.head())
+        # Save
+        loader.save_dataset(df, dataset, output_format='csv')

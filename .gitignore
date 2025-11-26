@@ -1,5 +1,3 @@
 .env
-
 api-data-uploader*
-download/SRR*
-download/fastq
+data

@@ -1,0 +1,30 @@
+# Configuration for GEO dataset processing
+# Sensitive values (AWS credentials) are set via environment variables
+
+# S3 Configuration
+s3_bucket: amarchs3  # Your S3 bucket name
+s3_region: eu-north-1  # AWS region
+
+# Data paths
+data_dir:
+  raw: data/raw/      # Raw GEO downloads
+  processed: data/processed/  # Processed datasets
+
+# Processing settings
+processing:
+  max_workers: 4  # Number of parallel workers for sample processing
+  parallel: true  # Enable parallel processing by default
+
+# GEO datasets to process
+datasets:
+  - GSE132040
+  - GSE63063
+  - GSE58137
+
+# Output formats
+output:
+  formats:
+    - parquet  # Preferred format (compressed)
+    - csv      # Alternative format
+  compression: gzip  # Compression for parquet files
+

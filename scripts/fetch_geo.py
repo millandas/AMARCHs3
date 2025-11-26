@@ -6,14 +6,25 @@ from pathlib import Path
 import yaml
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 class GEOFetcher:
     def __init__(self, config_path='config/datasets.yaml'):
         with open(config_path) as f:
             self.config = yaml.safe_load(f)
         
-        self.s3_client = boto3.client('s3')
-        self.bucket = self.config['s3_bucket']
+        # Initialize S3 client using environment variables
+        self.s3_client = boto3.client(
+            's3',
+            aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
+            aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
+            region_name=os.getenv('AWS_REGION_NAME', self.config.get('s3_region', 'eu-north-1'))
+        )
+        # Allow bucket override via environment variable, otherwise use config
+        self.bucket = os.getenv('AWS_S3_BUCKET') or self.config['s3_bucket']
         
     def fetch_dataset(self, geo_id, parallel=False, max_workers=4):
         """Download GEO dataset - one file per person"""
@@ -206,8 +217,8 @@ if __name__ == '__main__':
     fetcher = GEOFetcher()
     
     # Process datasets
-    datasets = ['GSE132040', 'GSE63063', 'GSE58137']
-    
+    #datasets = ['GSE132040', 'GSE63063', 'GSE58137']
+    datasets = ['GSE58137']
     for dataset in datasets:
         # Sequential processing
         # fetcher.fetch_dataset(dataset, parallel=False)

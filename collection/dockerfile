@@ -1,3 +1,0 @@
-FROM  quay.io/biocontainers/salmon:1.7.0--h84f40af_0
-USER root
-WORKDIR /salmon
