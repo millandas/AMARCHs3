@@ -179,7 +179,6 @@ class GEOFetcher:
                 'sample-id': str(sample_metadata['sample_id']),
                 'age': str(sample_metadata['age']),
                 'sex': str(sample_metadata['sex']),
-                'tissue': str(sample_metadata['tissue'])[:100]  # S3 has char limits
             }
             
             self.s3_client.upload_file(
@@ -207,7 +206,7 @@ if __name__ == '__main__':
     fetcher = GEOFetcher()
     
     # Process datasets
-    datasets = ['GSE58137']
+    datasets = ['GSE132040', 'GSE63063', 'GSE58137']
     
     for dataset in datasets:
         # Sequential processing
