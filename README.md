@@ -4,30 +4,6 @@ This repository contains a modular Python pipeline for fetching, processing, and
 
 ---
 
-## Screenshots
-
-<div align="center">
-
-<img src="static/Screenshot 2025-11-27 at 00.27.30.png" alt="Screenshot 1" width="600"/>
-
-*Screenshot 1 - November 27, 2025 at 00:27:30*
-
-<img src="static/Screenshot 2025-11-27 at 00.28.00.png" alt="Screenshot 2" width="600"/>
-
-*Screenshot 2 - November 27, 2025 at 00:28:00*
-
-<img src="static/Screenshot 2025-11-27 at 00.28.18.png" alt="Screenshot 3" width="600"/>
-
-*Screenshot 3 - November 27, 2025 at 00:28:18*
-
-<img src="static/Screenshot 2025-11-27 at 00.28.42.png" alt="Screenshot 4" width="600"/>
-
-*Screenshot 4 - November 27, 2025 at 00:28:42*
-
-</div>
-
----
-
 ## Features
 
 - **Fetch GEO Datasets**: Download and parse metadata and gene expression matrices from NCBI GEO using [GEOparse](https://github.com/guma44/GEOparse).
@@ -153,22 +129,27 @@ loader.save_dataset(df, 'GSE58137', output_format='csv')
 
 ---
 
-## FAQ
+## Screenshots of results in S3 Bucket
 
-- **What S3 permissions are required?**
-  - `s3:PutObject`, `s3:GetObject`, `s3:ListBucket` for your bucket.
-- **Can I run this without S3?**
-  - Minor adaptation required — see code for local path options.
-- **Supported datasets?**
-  - Any GEO platform with tabular, per-sample files (test with `GSE58137`).
+<div align="center">
 
----
+<img src="static/Screenshot 2025-11-27 at 00.27.30.png" alt="Screenshot 1" width="600"/>
 
-## Citation
+*Screenshot 1 - November 27, 2025 at 00:27:30*
 
-If you use this pipeline, please cite the repository and original GEO papers.
+<img src="static/Screenshot 2025-11-27 at 00.28.00.png" alt="Screenshot 2" width="600"/>
 
----
+*Screenshot 2 - November 27, 2025 at 00:28:00*
+
+<img src="static/Screenshot 2025-11-27 at 00.28.18.png" alt="Screenshot 3" width="600"/>
+
+*Screenshot 3 - November 27, 2025 at 00:28:18*
+
+<img src="static/Screenshot 2025-11-27 at 00.28.42.png" alt="Screenshot 4" width="600"/>
+
+*Screenshot 4 - November 27, 2025 at 00:28:42*
+
+</div>
 
 ## License
 
