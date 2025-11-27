@@ -8,19 +8,19 @@ This repository contains a modular Python pipeline for fetching, processing, and
 
 <div align="center">
 
-<img src="static/Screenshot 2025-11-27 at 00.27.30.png" alt="Screenshot 1" width="600"/>
+<img src="static/s3bucket/Screenshot 2025-11-27 at 00.27.30.png" alt="Screenshot 1" width="600"/>
 
 *Screenshot 1 - November 27, 2025 at 00:27:30*
 
-<img src="static/Screenshot 2025-11-27 at 00.28.00.png" alt="Screenshot 2" width="600"/>
+<img src="static/s3bucket/Screenshot 2025-11-27 at 00.28.00.png" alt="Screenshot 2" width="600"/>
 
 *Screenshot 2 - November 27, 2025 at 00:28:00*
 
-<img src="static/Screenshot 2025-11-27 at 00.28.18.png" alt="Screenshot 3" width="600"/>
+<img src="static/s3bucket/Screenshot 2025-11-27 at 00.28.18.png" alt="Screenshot 3" width="600"/>
 
 *Screenshot 3 - November 27, 2025 at 00:28:18*
 
-<img src="static/Screenshot 2025-11-27 at 00.28.42.png" alt="Screenshot 4" width="600"/>
+<img src="static/s3bucket/Screenshot 2025-11-27 at 00.28.42.png" alt="Screenshot 4" width="600"/>
 
 *Screenshot 4 - November 27, 2025 at 00:28:42*
 
