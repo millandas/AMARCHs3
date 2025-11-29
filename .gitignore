@@ -213,3 +213,6 @@ __marimo__/
 HGNC.txt
 scripts/Expression_TPMLogp1_ProteinCodingOnly.csv
 OmicsExpressionTPMLogp1HumanAllGenes.csv
+scripts/model_ccle_merged.csv
+scripts/model_ccle_merged.csv
+scripts/CCLE_sample_info_file_2012-10-18.txt
