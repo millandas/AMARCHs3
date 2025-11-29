@@ -124,7 +124,7 @@ class GeneExpressionDataLoader:
 if __name__ == "__main__":
     loader = GeneExpressionDataLoader()
 
-    datasets = [ 'GSE58137'] # 'GSE63063',
+    datasets = ['GSE58137', 'GSE63063'] # 'GSE63063',
     
     for dataset in datasets:
         # Build dataset

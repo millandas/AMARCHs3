@@ -50,27 +50,133 @@ class GEOFetcher:
         print("Downloading full GEO dataset...")
         gse_full = GEOparse.get_GEO(geo=geo_id, destdir='data/raw/')
         
-        if parallel:
-            self.process_samples_parallel(geo_id, gse_full, valid_samples, metadata, max_workers)
+        # Check if we have expression data in series matrix
+        expression_matrix = self.get_expression_matrix(gse_full)
+        
+        if expression_matrix is not None:
+            print(f"Found expression matrix with shape: {expression_matrix.shape}")
+            if parallel:
+                self.process_samples_parallel_matrix(geo_id, expression_matrix, valid_samples, metadata, max_workers)
+            else:
+                self.process_samples_sequential_matrix(geo_id, expression_matrix, valid_samples, metadata)
         else:
-            self.process_samples_sequential(geo_id, gse_full, valid_samples, metadata)
+            # Fallback to individual sample processing
+            print("No series matrix found, processing individual samples...")
+            if parallel:
+                self.process_samples_parallel(geo_id, gse_full, valid_samples, metadata, max_workers)
+            else:
+                self.process_samples_sequential(geo_id, gse_full, valid_samples, metadata)
+    
+    def get_expression_matrix(self, gse):
+        """Extract expression matrix from GSE object"""
+        # Try to get the expression matrix from the series
+        # This is usually in gse.pivot_samples() or gse.table
+        try:
+            # Method 1: Try pivot_samples (most common for expression data)
+            if hasattr(gse, 'pivot_samples'):
+                expr_matrix = gse.pivot_samples('VALUE')
+                if expr_matrix is not None and not expr_matrix.empty:
+                    print("Found expression data via pivot_samples()")
+                    return expr_matrix
+        except Exception as e:
+            print(f"pivot_samples failed: {e}")
+        
+        try:
+            # Method 2: Try the table attribute
+            if hasattr(gse, 'table') and gse.table is not None:
+                if not gse.table.empty and 'VALUE' in gse.table.columns:
+                    print("Found expression data in gse.table")
+                    return gse.table
+        except Exception as e:
+            print(f"gse.table check failed: {e}")
+        
+        # Method 3: Check if there's a phenotype matrix with expression
+        if hasattr(gse, 'phenotype_data'):
+            try:
+                pheno = gse.phenotype_data()
+                if pheno is not None and not pheno.empty:
+                    print("Found phenotype data, checking for expression columns...")
+            except Exception as e:
+                print(f"phenotype_data check failed: {e}")
+        
+        return None
+    
+    def process_samples_sequential_matrix(self, geo_id, expr_matrix, sample_ids, metadata_df):
+        """Process samples from expression matrix"""
+        for idx, sample_id in enumerate(sample_ids, 1):
+            print(f"Processing {idx}/{len(sample_ids)}: {sample_id}")
+            self.process_single_sample_from_matrix(geo_id, expr_matrix, sample_id, metadata_df)
+    
+    def process_samples_parallel_matrix(self, geo_id, expr_matrix, sample_ids, metadata_df, max_workers=4):
+        """Process samples from expression matrix in parallel"""
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            future_to_sample = {
+                executor.submit(self.process_single_sample_from_matrix, geo_id, expr_matrix, sample_id, metadata_df): sample_id
+                for sample_id in sample_ids
+            }
+            
+            completed = 0
+            for future in as_completed(future_to_sample):
+                sample_id = future_to_sample[future]
+                try:
+                    future.result()
+                    completed += 1
+                    print(f"✓ Completed {completed}/{len(sample_ids)}: {sample_id}")
+                except Exception as e:
+                    print(f"✗ Failed {sample_id}: {e}")
+    
+    def process_single_sample_from_matrix(self, geo_id, expr_matrix, sample_id, metadata_df):
+        """Extract single sample from expression matrix"""
+        # Check if sample exists in matrix
+        if sample_id not in expr_matrix.columns:
+            print(f"Warning: {sample_id} not found in expression matrix")
+            return
+        
+        # Extract this sample's expression data
+        sample_expr = expr_matrix[[sample_id]].copy()
+        sample_expr = sample_expr.reset_index()
+        sample_expr.columns = ['gene_id', 'expression_value']
+        
+        # Get metadata for this sample
+        sample_meta = metadata_df[metadata_df['sample_id'] == sample_id].iloc[0]
+        
+        # Check if we have actual data
+        if sample_expr.empty or len(sample_expr) == 0:
+            print(f"Warning: No expression data for {sample_id}")
+            return
+        
+        print(f"  Sample {sample_id}: {len(sample_expr)} genes")
+        
+        # Save locally
+        os.makedirs('data/processed', exist_ok=True)
+        output_path = f'data/processed/{geo_id}_{sample_id}.csv'
+        sample_expr.to_csv(output_path, index=False)
+        
+        # Upload to S3 with metadata
+        s3_key = f'{geo_id}/samples/{sample_id}.csv'
+        self.upload_to_s3_with_metadata(
+            output_path, 
+            s3_key,
+            sample_meta
+        )
+        
+        # Clean up local file
+        os.remove(output_path)
     
     def process_samples_sequential(self, geo_id, gse, sample_ids, metadata_df):
-        """Process samples one by one"""
+        """Process samples one by one (original method)"""
         for idx, sample_id in enumerate(sample_ids, 1):
             print(f"Processing {idx}/{len(sample_ids)}: {sample_id}")
             self.process_single_sample(geo_id, gse, sample_id, metadata_df)
     
     def process_samples_parallel(self, geo_id, gse, sample_ids, metadata_df, max_workers=4):
-        """Process samples in parallel using threading"""
+        """Process samples in parallel using threading (original method)"""
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            # Submit all tasks
             future_to_sample = {
                 executor.submit(self.process_single_sample, geo_id, gse, sample_id, metadata_df): sample_id
                 for sample_id in sample_ids
             }
             
-            # Process as they complete
             completed = 0
             for future in as_completed(future_to_sample):
                 sample_id = future_to_sample[future]
@@ -82,18 +188,30 @@ class GEOFetcher:
                     print(f"✗ Failed {sample_id}: {e}")
     
     def process_single_sample(self, geo_id, gse, sample_id, metadata_df):
-        """Process a single sample: extract expression + add metadata"""
+        """Process a single sample: extract expression + add metadata (original method)"""
         if sample_id not in gse.gsms:
             print(f"Warning: {sample_id} not found in dataset")
             return
         
         # Get expression data
         gsm = gse.gsms[sample_id]
-        expr_df = gsm.table.copy()  # can be empty depending on dataset !!!!!!
+        
+        # Check if table has data
+        if gsm.table is None or gsm.table.empty:
+            print(f"Warning: {sample_id} has no table data")
+            return
+        
+        expr_df = gsm.table.copy()
+        
+        # Verify we have expression values
+        if 'VALUE' not in expr_df.columns and len(expr_df.columns) < 2:
+            print(f"Warning: {sample_id} table has no VALUE column")
+            return
+        
+        print(f"  Sample {sample_id}: {len(expr_df)} rows, columns: {list(expr_df.columns)}")
         
         # Get metadata for this sample
         sample_meta = metadata_df[metadata_df['sample_id'] == sample_id].iloc[0]
-        
         
         # Save locally
         os.makedirs('data/processed', exist_ok=True)
@@ -118,18 +236,14 @@ class GEOFetcher:
         # Save locally
         os.makedirs('data/processed', exist_ok=True)
         metadata_csv = f'data/processed/{geo_id}_metadata.csv'
-        #metadata_parquet = f'data/processed/{geo_id}_metadata.parquet'
         
         metadata.to_csv(metadata_csv, index=False)
-        #metadata.to_parquet(metadata_parquet, compression='gzip')
         
         # Upload to S3
         self.upload_to_s3(metadata_csv, f'{geo_id}/metadata.csv')
-        #self.upload_to_s3(metadata_parquet, f'{geo_id}/metadata.parquet')
         
         # Clean up
         os.remove(metadata_csv)
-        #os.remove(metadata_parquet)
         
         print(f"Saved metadata for {len(metadata)} samples")
     
@@ -168,9 +282,9 @@ class GEOFetcher:
             if field in metadata:
                 for item in metadata[field]:
                     item_lower = str(item).lower()
-                    if 'male' in item_lower:
+                    if 'male' in item_lower or 'm' == item_lower:
                         return 'male' if 'female' not in item_lower else 'female'
-                    if 'female' in item_lower:
+                    if 'female' or 'f' in item_lower:
                         return 'female'
         return None
     
@@ -185,7 +299,6 @@ class GEOFetcher:
     def upload_to_s3_with_metadata(self, local_path, s3_key, sample_metadata):
         """Upload file to S3 with sample metadata as object tags"""
         try:
-            # S3 object metadata (limited to simple string key-values)
             metadata = {
                 'sample-id': str(sample_metadata['sample_id']),
                 'age': str(sample_metadata['age']),
@@ -215,14 +328,22 @@ class GEOFetcher:
 
 if __name__ == '__main__':
     fetcher = GEOFetcher()
-    
-    # Process datasets
-    #datasets = ['GSE132040', 'GSE63063', 'GSE58137']
-    datasets = ['GSE225620'] #'GSE58137'
-    datasets = ['GSE48762']
+
+    datasets =[
+    "GSE74813",
+    "GSE68310",
+    "GSE74811",
+    "GSE48023",
+    "GSE61754",
+    "GSE90732",
+    "GSE107990",
+    "GSE59635",
+    "GSE101709",
+    "GSE59654",
+    "GSE59743"]
+
+    #datasets = ['GSE48762']
+    #datasets = ['GSE58137', 'GSE63063'] #'GSE143507' tsv bitch
     for dataset in datasets:
-        # Sequential processing
-        # fetcher.fetch_dataset(dataset, parallel=False)
-        
         # Parallel processing (4 workers)
         fetcher.fetch_dataset(dataset, parallel=True, max_workers=4)
