@@ -19,7 +19,7 @@ The repository is organized as follows:
    *(A Random Forest with 10 trees was used due to memory constraints.)*
 
 4. **`mol-insight` folder**
-   Contains a web application that visualizes the results and insights produced in this project.
+   Contains a web application that visualizes the results and insights produced in this project. (version with our preds on empty-branch)
    To launch locally:
 
    ```bash
