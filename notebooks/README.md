@@ -4,3 +4,10 @@ You have to add the file 'embbedings_with_molecule_names.csv' and 'GSE70138_Broa
 
 
 Additionally, the aws_access_key_id and aws_secret_access_key for the S3 bucket must be stored in Colab Secrets.
+
+Finally, you have to run the notebooks in this order : 
+
+ 1) from_S3_to_Drive(1).ipynb
+ 2) dataset(1).ipynb
+ 3) EDA(3).ipynb
+ 4) prediction(2).ipynb
